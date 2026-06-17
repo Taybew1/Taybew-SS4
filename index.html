@@ -14,9 +14,9 @@
 </head>
 <body class="bg-[#0f111a] text-slate-100 min-h-screen flex flex-col selection:bg-cyan-500 selection:text-slate-900">
 
-    <!-- HEADER -->
     <header class="border-b border-slate-800 bg-[#07080e]/90 backdrop-blur sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            
             <div class="flex items-center gap-3">
                 <span class="text-3xl animate-bounce">⚽</span>
                 <div>
@@ -26,39 +26,42 @@
                     <p class="text-[10px] text-slate-400 tracking-widest uppercase">Walrus Memory SS4 Agent</p>
                 </div>
             </div>
-            <div class="flex items-center gap-3">
+            
+            <div class="flex items-center gap-4">
+                
                 <div class="hidden sm:flex flex-col items-end text-right">
                     <span class="text-xs text-slate-400">Wallet Session Experiencing:</span>
                     <span class="text-xs font-mono text-cyan-400">0xwalrus...7b92a</span>
                 </div>
+
+                <div class="flex items-center gap-2">
+                    <div id="google-btn-wrapper">
+                        <div id="google-login-btn"></div>
+                    </div>
+
+                    <div id="user-profile" class="hidden flex items-center gap-3 bg-slate-900/80 p-1.5 pr-4 rounded-full border border-slate-800">
+                        <img id="user-avatar" src="" alt="Avatar" class="w-8 h-8 rounded-full border border-cyan-500">
+                        <div class="flex flex-col text-left">
+                            <span id="user-name" class="text-xs font-bold text-slate-200"></span>
+                            <span id="user-email" class="text-[10px] text-slate-400"></span>
+                        </div>
+                        <button id="logout-btn" class="ml-2 text-slate-500 hover:text-rose-400 text-xs transition" title="Logout">🚪</button>
+                    </div>
+                </div>
+
                 <span class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs px-2.5 py-1 rounded-full font-medium flex items-center gap-1.5">
                     <span class="w-2 h-2 bg-emerald-400 rounded-full animate-ping"></span> Mainnet Connected
                 </span>
+
             </div>
         </div>
-        <div class="flex items-center gap-4">
-    <div id="google-btn-wrapper">
-        <div id="google-login-btn"></div>
-    </div>
-
-    <div id="user-profile" class="hidden flex items-center gap-3 bg-slate-900/80 p-1.5 pr-4 rounded-full border border-slate-800">
-        <img id="user-avatar" src="" alt="Avatar" class="w-8 h-8 rounded-full border border-cyan-500">
-        <div class="flex flex-col text-left">
-            <span id="user-name" class="text-xs font-bold text-slate-200"></span>
-            <span id="user-email" class="text-[10px] text-slate-400"></span>
-        </div>
-        <button id="logout-btn" class="ml-2 text-slate-500 hover:text-rose-400 text-xs transition" title="Logout"> can</button>
-    </div>
-</div>
     </header>
 
-    <!-- HERO BANNER SECTION -->
     <section class="relative w-full h-[250px] sm:h-[350px] md:h-[480px] overflow-hidden bg-slate-950 border-b border-slate-800">
         <img src="SS4.png" alt="Walrus SS4 Banner" class="w-full h-full object-cover object-center opacity-95">
         <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#0f111a] to-transparent"></div>
     </section>
 
-    <!-- PROJECT INTRODUCTION INFO BOX -->
     <section class="w-full max-w-7xl mx-auto px-4 mt-6">
         <div class="w-full bg-slate-900/80 backdrop-blur-md p-6 rounded-2xl border border-slate-800 shadow-xl">
             <span class="bg-gradient-to-r from-cyan-500 to-blue-500 text-slate-950 text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-md mb-2 inline-block">
@@ -73,12 +76,9 @@
         </div>
     </section>
 
-    <!-- MAIN INTERFACE CONTAINER -->
     <main class="flex-1 max-w-7xl w-full mx-auto p-4 grid grid-cols-1 lg:grid-cols-3 gap-6 my-2">
         
-        <!-- LEFT COLUMN: TIME-WARP CONTROLLER & BRAIN LOG -->
         <div class="lg:col-span-1 space-y-6">
-            <!-- Timeline Simulator -->
             <div class="bg-slate-900/60 border border-slate-800 p-5 rounded-2xl shadow-xl space-y-4">
                 <h3 class="heading-font font-bold text-amber-400 flex items-center gap-2 text-sm">
                     ⏳ Timeline Simulator (For Judges)
@@ -101,7 +101,6 @@
                 </div>
             </div>
 
-            <!-- WALRUS BRAIN STATE -->
             <div class="bg-slate-900/60 border border-slate-800 p-5 rounded-2xl shadow-xl space-y-4">
                 <div class="flex justify-between items-center">
                     <h3 class="heading-font font-bold text-cyan-400 flex items-center gap-2 text-sm">
@@ -111,8 +110,7 @@
                 </div>
                 
                 <div id="walrus-memory-slots" class="space-y-2.5 font-mono text-xs">
-                    <!-- Automatically rendered by app.js -->
-                </div>
+                    </div>
 
                 <button id="clear-mem-btn" class="w-full py-2 bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 border border-rose-500/20 text-xs font-medium rounded-xl transition">
                     🗑️ Wipe Walrus Memory (Reset State)
@@ -120,10 +118,8 @@
             </div>
         </div>
 
-        <!-- RIGHT COLUMN: DUAL AI CHATROOM -->
         <div class="lg:col-span-2 flex flex-col bg-slate-900/40 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl h-[550px]">
             
-            <!-- Agent Profiles -->
             <div class="grid grid-cols-2 border-b border-slate-800 bg-slate-950/60">
                 <div class="p-3 flex items-center gap-2.5 border-r border-slate-800 bg-cyan-500/5">
                     <span class="text-2xl">🔥</span>
@@ -141,14 +137,12 @@
                 </div>
             </div>
 
-            <!-- Chat Viewport -->
             <div id="chat-viewport" class="flex-1 overflow-y-auto p-4 space-y-4 bg-[#0d0f17]">
                 <div class="flex justify-center">
                     <span class="text-[10px] bg-slate-800 text-slate-400 px-2.5 py-1 rounded-full font-mono">System: Walrus Memory Stream initialized successfully.</span>
                 </div>
             </div>
 
-            <!-- Input Form -->
             <div class="p-4 bg-slate-950 border-t border-slate-800">
                 <form id="chat-form" class="flex gap-2">
                     <input id="user-input" type="text" required placeholder="Try: 'I think Argentina will win World Cup 2026, Messi is eternal'..." 
@@ -162,12 +156,10 @@
 
     </main>
 
-    <!-- FOOTER -->
     <footer class="border-t border-slate-800 bg-slate-950/50 py-6 text-center text-xs text-slate-500 mt-8">
         <p>© 2026 Walrus Foundation · Hackathon Session 4 Submission</p>
     </footer>
 
-    <!-- LINK EXTERNAL LOGIC -->
     <script src="app.js"></script>
 </body>
 </html>
