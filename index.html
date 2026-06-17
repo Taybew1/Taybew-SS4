@@ -13,7 +13,6 @@
 </head>
 <body class="bg-[#0f111a] text-slate-100 min-h-screen flex flex-col selection:bg-cyan-500 selection:text-slate-900">
 
-    <!-- HEADER -->
     <header class="border-b border-slate-800 bg-[#07080e]/90 backdrop-blur sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
             <div class="flex items-center gap-3">
@@ -37,14 +36,11 @@
         </div>
     </header>
 
-    <!-- HERO BANNER SECTION (Hiển thị trọn vẹn 100% hình ảnh không bị che) -->
     <section class="relative w-full h-[250px] sm:h-[350px] md:h-[480px] overflow-hidden bg-slate-950 border-b border-slate-800">
         <img src="SS4.png" alt="Walrus SS4 Banner" class="w-full h-full object-cover object-center opacity-95">
-        <!-- Lớp phủ nhẹ tinh tế ở viền đáy để hòa hợp với nền tối -->
         <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#0f111a] to-transparent"></div>
     </section>
 
-    <!-- KHUNG CHỮ GIỚI THIỆU ĐÃ ĐƯỢC LÙI XUỐNG DƯỚI BANNER -->
     <section class="w-full max-w-7xl mx-auto px-4 mt-6">
         <div class="w-full bg-slate-900/80 backdrop-blur-md p-6 rounded-2xl border border-slate-800 shadow-xl">
             <span class="bg-gradient-to-r from-cyan-500 to-blue-500 text-slate-950 text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-md mb-2 inline-block">
@@ -59,12 +55,9 @@
         </div>
     </section>
 
-    <!-- MAIN INTERFACE CONTAINER -->
     <main class="flex-1 max-w-7xl w-full mx-auto p-4 grid grid-cols-1 lg:grid-cols-3 gap-6 my-2">
         
-        <!-- CỘT TRÁI: ĐIỀU KHIỂN TIME-WARP & BRAIN LOG -->
         <div class="lg:col-span-1 space-y-6">
-            <!-- Giả Lập Dòng Thời Gian -->
             <div class="bg-slate-900/60 border border-slate-800 p-5 rounded-2xl shadow-xl space-y-4">
                 <h3 class="heading-font font-bold text-amber-400 flex items-center gap-2 text-sm">
                     ⏳ Giả Lập Dòng Thời Gian (Dành cho Giám Khảo)
@@ -87,7 +80,6 @@
                 </div>
             </div>
 
-            <!-- WALRUS BRAIN STATE -->
             <div class="bg-slate-900/60 border border-slate-800 p-5 rounded-2xl shadow-xl space-y-4">
                 <div class="flex justify-between items-center">
                     <h3 class="heading-font font-bold text-cyan-400 flex items-center gap-2 text-sm">
@@ -97,19 +89,16 @@
                 </div>
                 
                 <div id="walrus-memory-slots" class="space-y-2.5 font-mono text-xs">
-                    <!-- Được render tự động bằng JS -->
-                </div>
+                    </div>
 
-                <button onclick="clearWalrusMemory()" class="w-full py-2 bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 border border-rose-500/20 text-xs font-medium rounded-xl transition">
+                <button id="clear-mem-btn" class="w-full py-2 bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 border border-rose-500/20 text-xs font-medium rounded-xl transition">
                     🗑️ Xóa Bộ Nhớ Walrus (Reset State)
                 </button>
             </div>
         </div>
 
-        <!-- CỘT PHẢI: KHUNG CHAT ĐÔI BẠN CÙNG TIẾN (HypeMan vs DoomSayer) -->
         <div class="lg:col-span-2 flex flex-col bg-slate-900/40 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl h-[550px]">
             
-            <!-- Avatar Từng Agent -->
             <div class="grid grid-cols-2 border-b border-slate-800 bg-slate-950/60">
                 <div class="p-3 flex items-center gap-2.5 border-r border-slate-800 bg-cyan-500/5">
                     <span class="text-2xl">🔥</span>
@@ -127,14 +116,12 @@
                 </div>
             </div>
 
-            <!-- Khu vực hiển thị tin nhắn -->
             <div id="chat-viewport" class="flex-1 overflow-y-auto p-4 space-y-4 bg-[#0d0f17]">
                 <div class="flex justify-center">
                     <span class="text-[10px] bg-slate-800 text-slate-400 px-2.5 py-1 rounded-full font-mono">Hệ thống: Khởi tạo luồng Walrus Memory thành công.</span>
                 </div>
             </div>
 
-            <!-- Khung nhập liệu đầu vào -->
             <div class="p-4 bg-slate-950 border-t border-slate-800">
                 <form id="chat-form" class="flex gap-2">
                     <input id="user-input" type="text" required placeholder="Gõ thử: 'Tôi yêu Argentina, Messi vô địch'..." 
@@ -148,154 +135,10 @@
 
     </main>
 
-    <!-- FOOTER -->
     <footer class="border-t border-slate-800 bg-slate-950/50 py-6 text-center text-xs text-slate-500 mt-8">
         <p>© 2026 Walrus Foundation · Giao diện nộp bài Hackathon SS4</p>
     </footer>
 
-    <!-- CORE LOGIC JAVASCRIPT -->
-    <script>
-        let mockWalrusStorage = { favorite_team: null, user_vibe: "Trung lập", interaction_count: 0, day_1_declaration: null };
-        let currentDay = 1;
-
-        const timelineSlider = document.getElementById('timeline-slider');
-        const currentDayLabel = document.getElementById('current-day-label');
-        const walrusMemorySlots = document.getElementById('walrus-memory-slots');
-        const chatViewport = document.getElementById('chat-viewport');
-        const chatForm = document.getElementById('chat-form');
-        const userInput = document.getElementById('user-input');
-
-        updateWalrusUI();
-
-        timelineSlider.addEventListener('input', (e) => {
-            currentDay = parseInt(e.target.value);
-            if (currentDay === 1) {
-                currentDayLabel.innerText = "Ngày 1: Khởi Đầu";
-                currentDayLabel.className = "text-cyan-400 uppercase tracking-wider";
-            } else if (currentDay < 4) {
-                currentDayLabel.innerText = `Ngày ${currentDay}: Thu Thập`;
-                currentDayLabel.className = "text-purple-400 uppercase tracking-wider";
-            } else {
-                currentDayLabel.innerText = "Ngày 4: Bộ Nhớ Bùng Nổ";
-                currentDayLabel.className = "text-amber-400 uppercase tracking-wider animate-pulse";
-            }
-        });
-
-        function updateWalrusUI() {
-            walrusMemorySlots.innerHTML = `
-                <div class="p-2 bg-slate-950 rounded border border-slate-800">
-                    <span class="text-slate-500">[Fav_Team]:</span> 
-                    <span class="${mockWalrusStorage.favorite_team ? 'text-emerald-400' : 'text-slate-600'}">${mockWalrusStorage.favorite_team || 'null'}</span>
-                </div>
-                <div class="p-2 bg-slate-950 rounded border border-slate-800">
-                    <span class="text-slate-500">[User_Vibe]:</span> 
-                    <span class="text-purple-400">${mockWalrusStorage.user_vibe}</span>
-                </div>
-                <div class="p-2 bg-slate-950 rounded border border-slate-800">
-                    <span class="text-slate-500">[Day1_Quote]:</span> 
-                    <span class="text-amber-300 text-[11px] block mt-0.5 italic">${mockWalrusStorage.day_1_declaration ? `"${mockWalrusStorage.day_1_declaration}"` : 'null'}</span>
-                </div>
-                <div class="p-2 bg-slate-950 rounded border border-slate-800 flex justify-between">
-                    <span class="text-slate-500">[Total_Sessions]:</span> 
-                    <span class="text-cyan-400">${mockWalrusStorage.interaction_count}</span>
-                </div>
-            `;
-        }
-
-        function clearWalrusMemory() {
-            mockWalrusStorage = { favorite_team: null, user_vibe: "Trung lập", interaction_count: 0, day_1_declaration: null };
-            updateWalrusUI();
-            chatViewport.innerHTML = `<div class="flex justify-center"><span class="text-[10px] bg-rose-950 text-rose-300 px-2.5 py-1 rounded-full font-mono">Hệ thống: Đã reset bộ nhớ.</span></div>`;
-        }
-
-        function appendMessage(sender, text, isUser = false) {
-            const msgDiv = document.createElement('div');
-            msgDiv.className = isUser ? "flex justify-end" : "grid grid-cols-2 gap-4 my-2";
-            
-            if (isUser) {
-                msgDiv.innerHTML = `
-                    <div class="bg-slate-800 text-slate-100 px-4 py-2 rounded-2xl text-sm max-w-[80%] border border-slate-700">
-                        <p class="text-[10px] text-slate-400 mb-0.5 font-bold">Bạn (Ngày ${currentDay})</p>
-                        <p>${text}</p>
-                    </div>
-                `;
-            } else {
-                msgDiv.innerHTML = `
-                    <div class="bg-cyan-950/30 border border-cyan-800/30 p-3 rounded-2xl text-xs space-y-1">
-                        <span class="font-bold text-cyan-400">🔥 HypeMan:</span>
-                        <p class="text-slate-200 leading-relaxed">${text.hype}</p>
-                    </div>
-                    <div class="bg-pink-950/30 border border-pink-800/30 p-3 rounded-2xl text-xs space-y-1">
-                        <span class="font-bold text-pink-400">💀 DoomSayer:</span>
-                        <p class="text-slate-200 leading-relaxed">${text.doom}</p>
-                    </div>
-                `;
-            }
-            chatViewport.appendChild(msgDiv);
-            chatViewport.scrollTop = chatViewport.scrollHeight;
-        }
-
-        chatForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const text = userInput.value.trim();
-            if (!text) return;
-
-            appendMessage("User", text, true);
-            userInput.value = "";
-            mockWalrusStorage.interaction_count++;
-
-            setTimeout(() => {
-                let responses = { hype: "", doom: "" };
-                let textLower = text.toLowerCase();
-
-                if (currentDay === 1) {
-                    if (textLower.includes("argentina") || textLower.includes("messi")) {
-                        mockWalrusStorage.favorite_team = "Argentina";
-                        mockWalrusStorage.day_1_declaration = text;
-                        mockWalrusStorage.user_vibe = "Fan Cuồng Messi";
-                        responses.hype = "Tuyệt cú mèo! Messi sở hữu hào quang nhà vua, Argentina chắc chắn sẽ lại nâng cúp World Cup 2026!";
-                        responses.doom = "Đúng là đồ đu trend rập khuôn. Mới Ngày 1 gáy sớm thế này để xem được mấy hôm, cẩn thận kẻo khóc hận.";
-                    } else if (textLower.includes("brazil") || textLower.includes("neymar")) {
-                        mockWalrusStorage.favorite_team = "Brazil";
-                        mockWalrusStorage.day_1_declaration = text;
-                        mockWalrusStorage.user_vibe = "Joga Bonito";
-                        responses.hype = "Vũ điệu Samba quyến rũ! Xem Brazil đá mới đúng nghĩa là tận hưởng bóng đá nghệ thuật!";
-                        responses.doom = "Brazil giờ chỉ còn là cái bóng của quá khứ thôi ông bạn ơi. Đoán thế này là chuẩn bị ra đê rồi.";
-                    } else {
-                        mockWalrusStorage.user_vibe = "Đang tìm hiểu";
-                        responses.hype = "Thật là một góc nhìn khách quan và thú vị! Bạn quả là một người xem bóng đá có chiều sâu.";
-                        responses.doom = "Nói chuyện nước đôi ba phải thế này chứng tỏ chả biết tí gì về bóng đá cả. Nghỉ xem giải cho lành!";
-                    }
-                } else if (currentDay < 4) {
-                    responses.hype = "Tôi luôn đồng hành cùng các phân tích của bạn. Bạn chọn chuẩn đấy!";
-                    responses.doom = "Phân tích như chuyên gia nhưng tỷ lệ ăn thì hên xui. Để tôi ghi vào sổ thù vặt của Walrus nhé.";
-                } else {
-                    if (textLower.includes("chán") || textLower.includes("bỏ") || textLower.includes("thua")) {
-                        if (mockWalrusStorage.favorite_team === "Argentina") {
-                            responses.hype = `Đừng nản lòng! Tôi nhớ rõ **Ngày 1** bạn từng nói <span class="text-amber-300 font-medium">"${mockWalrusStorage.day_1_declaration}"</span>. Hãy giữ vững đức tin vào Messi!`;
-                            responses.doom = `Hahaha! Lật lại dữ liệu Walrus xem nào: **Ngày 1** vừa mạnh mồm gáy <span class="text-amber-300 font-medium">"${mockWalrusStorage.day_1_declaration}"</span> cơ mà? Giờ gặp tí khó khăn đã đòi bỏ giải? Đúng là fan phong trào!`;
-                        } else if (mockWalrusStorage.favorite_team === "Brazil") {
-                            responses.hype = `Vũ công Samba luôn có những nốt trầm! Hãy nhớ lại nhiệt huyết của bạn ở **Ngày 1** xem nào!`;
-                            responses.doom = `Đã bảo từ **Ngày 1** rồi mà không nghe. Giờ thì ôm quả đắng với cái đội Brazil của bạn nhé, dữ liệu rành rành trên Mainnet!`;
-                        } else {
-                            responses.hype = "Đường dài mới biết ngựa hay bạn ơi, thua keo này ta bày keo khác!";
-                            responses.doom = "Tôi đã cập nhật [User_Vibe] thành 'Tâm lý yếu' rồi nhé. Mới Ngày 4 đã chịu không nổi nhiệt.";
-                        }
-                    } else {
-                        if (mockWalrusStorage.favorite_team) {
-                            responses.hype = `Dù bạn nói gì, tôi vẫn nhớ bạn là một fan chân chính của ${mockWalrusStorage.favorite_team}.`;
-                            responses.doom = `Đừng có đánh trống lảng, bộ nhớ Walrus của tôi vẫn ghi nguyên cái mốc ${mockWalrusStorage.favorite_team} từ Ngày 1 đấy.`;
-                        } else {
-                            responses.hype = "Bạn đã đồng hành cùng chúng tôi đến ngày thứ 4 rồi, tương tác rất tuyệt vời!";
-                            responses.doom = "Tương tác 4 ngày trời mà vẫn không dám chọn lấy một đội tâm đắc, nhát gan.";
-                        }
-                    }
-                }
-
-                updateWalrusUI();
-                appendMessage("AI", responses, false);
-            }, 700);
-        });
-    </script>
+    <script src="app.js"></script>
 </body>
 </html>
