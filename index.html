@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walrus Memory World Cup - Hackathon Rules</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen antialiased selection:bg-cyan-500 selection:text-slate-900">
+
+    <header class="border-b border-slate-800 bg-slate-950/50 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-3">
+                <span class="text-2xl">🦭</span>
+                <h1 class="text-xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
+                    Walrus Memory World Cup
+                </h1>
+            </div>
+            <div class="flex gap-2 text-xs font-semibold">
+                <span class="bg-cyan-500/10 text-cyan-400 px-3 py-1.5 rounded-full border border-cyan-500/20">SS4 Hackathon</span>
+                <span class="bg-emerald-500/10 text-emerald-400 px-3 py-1.5 rounded-full border border-emerald-500/20">Mainnet Live</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 py-12 space-y-12">
+        
+        <section class="bg-gradient-to-br from-slate-800/60 to-slate-900/60 p-6 rounded-2xl border border-slate-800 shadow-xl">
+            <h2 class="text-lg font-bold text-cyan-400 mb-3 flex items-center gap-2">
+                🎯 Mục Tiêu Cuộc Thi
+            </h2>
+            <p class="text-slate-300 leading-relaxed text-sm">
+                Thúc đẩy lập trình viên tương tác với giao thức <strong class="text-white">Walrus (Network)</strong> để phát triển và khởi chạy một nền tảng biểu mẫu/phản hồi native. Mục tiêu thứ hai là phát triển cộng đồng dev toàn cầu, hiện thực hóa các giá trị mở, công bằng và cạnh tranh của Walrus Foundation.
+            </p>
+        </section>
+
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="p-5 rounded-xl bg-slate-950 border border-slate-800 flex items-center gap-4">
+                <div class="p-3 bg-cyan-500/10 text-cyan-400 rounded-lg text-xl">📅</div>
+                <div>
+                    <p class="text-xs text-slate-400 uppercase tracking-wider">Thời gian diễn ra</p>
+                    <p class="text-base font-semibold text-white">05 tháng 6 — 24 tháng 6, 2026</p>
+                </div>
+            </div>
+            <div class="p-5 rounded-xl bg-slate-950 border border-slate-800 flex items-center gap-4">
+                <div class="p-3 bg-emerald-500/10 text-emerald-400 rounded-lg text-xl">🏆</div>
+                <div>
+                    <p class="text-xs text-slate-400 uppercase tracking-wider">Công bố kết quả</p>
+                    <p class="text-base font-semibold text-white">02 tháng 7, 2026</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="space-y-6">
+            <h2 class="text-xl font-bold text-white border-b border-slate-800 pb-2">📋 Điều Kiện & Yêu Cầu Nộp Bài</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+                <div class="space-y-3">
+                    <h3 class="font-semibold text-slate-300 flex items-center gap-2">👤 Đối với Thí sinh:</h3>
+                    <ul class="space-y-2 text-slate-400 list-disc list-inside pl-1">
+                        <li>Từ 18 tuổi trở lên (hoặc tuổi trưởng thành tại quốc gia cư trú).</li>
+                        <li>Không thuộc các khu vực bị trừng phạt/hạn chế.</li>
+                        <li>Phải đăng ký tài khoản trên nền tảng <strong class="text-slate-200">DeepSurge.xyz</strong>.</li>
+                    </ul>
+                </div>
+
+                <div class="space-y-3">
+                    <h3 class="font-semibold text-slate-300 flex items-center gap-2">📝 Thông tin dự án cần có:</h3>
+                    <ul class="space-y-1.5 text-slate-400 grid grid-cols-2 gap-1 list-none">
+                        <li>• Tên & Logo dự án</li>
+                        <li>• Mô tả sản phẩm</li>
+                        <li>• Website dự án</li>
+                        <li>• Thông tin liên hệ</li>
+                        <li>• Link GitHub công khai</li>
+                        <li>• Link App store (nếu có)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="bg-amber-500/5 border border-amber-500/20 p-5 rounded-xl space-y-3 mt-4">
+                <h3 class="font-bold text-amber-400 flex items-center gap-2 text-sm">
+                    ⚠️ Yêu Cầu Kỹ Thuật Bắt Buộc (Sản phẩm)
+                </h3>
+                <ul class="space-y-2 text-slate-300 text-sm list-disc list-inside">
+                    <li>Tích hợp <strong class="text-white">Walrus Memory</strong> để vận hành một AI Agent theo dõi dự đoán/ý kiến liên quan tới <strong class="text-cyan-400">FIFA World Cup 2026</strong>.</li>
+                    <li>Agent phải thể hiện <strong class="text-amber-400">trí nhớ dài hạn đích thực</strong> (phải nhớ được thông tin người dùng từ session trước và dùng nó một cách hợp lý ở session sau).</li>
+                    <li>Tất cả trạng thái (state) và bộ nhớ của Agent phải lưu trên <strong class="text-white">Walrus Mainnet</strong>.</li>
+                    <li>Có giao diện công khai để kiểm tra bộ nhớ (lịch sử dự đoán, log tranh luận, roast lịch sử user...).</li>
+                    <li>Cung cấp link live project, video demo (&lt; 3 phút), điền form Airtable và form feedback.</li>
+                    <li>Tham gia Discord Walrus và đăng bài kèm hashtag <span class="text-cyan-400">#Walrus</span> trên X (Twitter).</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="space-y-4">
+            <h2 class="text-xl font-bold text-white border-b border-slate-800 pb-2">⚖️ Tiêu Chí Chấm Điểm</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                <div class="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
+                    <div class="text-cyan-400 font-bold">1. Độ sâu & Tính xác thực của Bộ nhớ</div>
+                    <p class="text-slate-400 text-xs leading-relaxed">Agent có thực sự thay đổi hành vi theo thời gian không? Giám khảo sẽ soi kỹ sự khác biệt giữa "Ngày 1" và "Ngày thứ 4" của người dùng.</p>
+                </div>
+                <div class="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
+                    <div class="text-purple-400 font-bold">2. Sự Sáng tạo & Sự Thu hút</div>
+                    <p class="text-slate-400 text-xs leading-relaxed">Tận dụng bối cảnh World Cup kịch tính một cách bất ngờ, vui nhộn. Các dự án rập khuôn, copy ý tưởng sẽ bị điểm thấp dù code tốt.</p>
+                </div>
+                <div class="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-2">
+                    <div class="text-emerald-400 font-bold">3. Kỹ thuật & Độ hoàn thiện</div>
+                    <p class="text-slate-400 text-xs leading-relaxed">Chạy ổn định trên Walrus Mainnet, code sạch. Một bản MVP chạy mượt mà, tập trung sẽ được điểm cao hơn một dự án tham vọng nhưng lỗi.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="space-y-4">
+            <h2 class="text-xl font-bold text-white border-b border-slate-800 pb-2">🎁 Cơ Cấu Giải Thưởng (WAL)</h2>
+            <p class="text-xs text-slate-400 italic">Lưu ý: Giải thưởng tính bằng USD nhưng quy đổi và chi trả bằng token WAL vào ví tương thích do bạn cung cấp trong vòng 14 ngày từ khi thông báo.</p>
+            
+            <div class="overflow-x-auto rounded-xl border border-slate-800">
+                <table class="w-full text-left text-sm">
+                    <thead class="bg-slate-950 text-slate-300 font-medium border-b border-slate-800">
+                        <tr>
+                            <th class="p-4">Hạng mục / Thứ hạng</th>
+                            <th class="p-4 text-right">Giá trị giải thưởng (bằng WAL)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-800 text-slate-400">
+                        <tr class="hover:bg-slate-950/40"><td class="p-4 font-semibold text-amber-400">🥇 Giải Nhất (1st)</td><td class="p-4 text-right text-white font-medium">$500</td></tr>
+                        <tr class="hover:bg-slate-950/40"><td class="p-4 font-semibold text-slate-300">🥈 Giải Nhì (2nd)</td><td class="p-4 text-right text-white font-medium">$400</td></tr>
+                        <tr class="hover:bg-slate-950/40"><td class="p-4 font-semibold text-amber-600">🥉 Giải Ba (3rd)</td><td class="p-4 text-right text-white font-medium">$300</td></tr>
+                        <tr class="hover:bg-slate-950/40"><td class="p-4">🎖️ Giải Tư (4th)</td><td class="p-4 text-right text-white font-medium">$200</td></tr>
+                        <tr class="hover:bg-slate-950/40"><td class="p-4">🎖️ Giải Năm (5th)</td><td class="p-4 text-right text-white font-medium">$100</td></tr>
+                        <tr class="bg-cyan-950/10 hover:bg-cyan-950/20 text-cyan-300">
+                            <td class="p-4 font-medium">💬 Best Feedback (6 giải)</td>
+                            <td class="p-4 text-right font-medium">$50 / mỗi giải</td>
+                        </tr>
+                        <tr class="bg-purple-950/10 hover:bg-purple-950/20 text-purple-300">
+                            <td class="p-4 font-medium">✨ Giải đặc biệt (Hội đồng bình chọn)</td>
+                            <td class="p-4 text-right font-medium">$200</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="p-6 rounded-2xl bg-slate-950 border border-slate-800 space-y-3">
+            <h2 class="text-lg font-bold text-white flex items-center gap-2">
+                🔗 Cơ Chế Thưởng Người Giới Thiệu (Referral)
+            </h2>
+            <p class="text-sm text-slate-400 leading-relaxed">
+                Người giới thiệu (điền Discord handle trong form) sẽ nhận được phần thưởng bằng <strong class="text-white">25% giá trị giải thưởng</strong> của đội được giới thiệu (chỉ áp dụng nếu đội đó đạt giải từ 1 đến 5). Phần thưởng này được quỹ trả riêng, không trừ vào tiền giải của đội thắng cuộc.
+            </p>
+            <div class="bg-slate-900 p-4 rounded-xl text-xs border border-slate-800 text-slate-400 space-y-1">
+                <span class="text-cyan-400 font-semibold block mb-1">💡 Điều kiện để người giới thiệu nhận thưởng:</span>
+                <p>1. Bản thân người giới thiệu cũng phải là một thí sinh đã đăng ký.</p>
+                <p>2. Người giới thiệu <strong class="text-slate-200">phải nộp một dự án hợp lệ</strong> trong thời gian diễn ra hackathon.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="border-t border-slate-800 bg-slate-950/50 py-6 mt-12 text-center text-xs text-slate-500">
+        <p>© 2026 Walrus Foundation · Giao diện tối ưu hóa cho Thí sinh tham gia SS4</p>
+    </footer>
+
+</body>
+</html>
