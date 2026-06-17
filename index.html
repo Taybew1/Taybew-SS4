@@ -13,6 +13,7 @@
 </head>
 <body class="bg-[#0f111a] text-slate-100 min-h-screen flex flex-col selection:bg-cyan-500 selection:text-slate-900">
 
+    <!-- HEADER -->
     <header class="border-b border-slate-800 bg-[#07080e]/90 backdrop-blur sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
             <div class="flex items-center gap-3">
@@ -36,11 +37,13 @@
         </div>
     </header>
 
+    <!-- HERO BANNER SECTION -->
     <section class="relative w-full h-[250px] sm:h-[350px] md:h-[480px] overflow-hidden bg-slate-950 border-b border-slate-800">
         <img src="SS4.png" alt="Walrus SS4 Banner" class="w-full h-full object-cover object-center opacity-95">
         <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#0f111a] to-transparent"></div>
     </section>
 
+    <!-- PROJECT INTRODUCTION INFO BOX -->
     <section class="w-full max-w-7xl mx-auto px-4 mt-6">
         <div class="w-full bg-slate-900/80 backdrop-blur-md p-6 rounded-2xl border border-slate-800 shadow-xl">
             <span class="bg-gradient-to-r from-cyan-500 to-blue-500 text-slate-950 text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-md mb-2 inline-block">
@@ -55,9 +58,12 @@
         </div>
     </section>
 
+    <!-- MAIN INTERFACE CONTAINER -->
     <main class="flex-1 max-w-7xl w-full mx-auto p-4 grid grid-cols-1 lg:grid-cols-3 gap-6 my-2">
         
+        <!-- LEFT COLUMN: TIME-WARP CONTROLLER & BRAIN LOG -->
         <div class="lg:col-span-1 space-y-6">
+            <!-- Timeline Simulator -->
             <div class="bg-slate-900/60 border border-slate-800 p-5 rounded-2xl shadow-xl space-y-4">
                 <h3 class="heading-font font-bold text-amber-400 flex items-center gap-2 text-sm">
                     ⏳ Timeline Simulator (For Judges)
@@ -75,4 +81,78 @@
                            class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-500">
                     <div class="flex justify-between text-[10px] text-slate-500 font-mono">
                         <span>Day 1 (Conversation)</span>
-                        <span>Day 4
+                        <span>Day 4 (Consequences)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WALRUS BRAIN STATE -->
+            <div class="bg-slate-900/60 border border-slate-800 p-5 rounded-2xl shadow-xl space-y-4">
+                <div class="flex justify-between items-center">
+                    <h3 class="heading-font font-bold text-cyan-400 flex items-center gap-2 text-sm">
+                        🧠 Walrus Brain State
+                    </h3>
+                    <span class="text-[10px] font-mono bg-cyan-500/10 text-cyan-400 px-2 py-0.5 rounded border border-cyan-500/20">Mainnet Storage</span>
+                </div>
+                
+                <div id="walrus-memory-slots" class="space-y-2.5 font-mono text-xs">
+                    <!-- Automatically rendered by app.js -->
+                </div>
+
+                <button id="clear-mem-btn" class="w-full py-2 bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 border border-rose-500/20 text-xs font-medium rounded-xl transition">
+                    🗑️ Wipe Walrus Memory (Reset State)
+                </button>
+            </div>
+        </div>
+
+        <!-- RIGHT COLUMN: DUAL AI CHATROOM -->
+        <div class="lg:col-span-2 flex flex-col bg-slate-900/40 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl h-[550px]">
+            
+            <!-- Agent Profiles -->
+            <div class="grid grid-cols-2 border-b border-slate-800 bg-slate-950/60">
+                <div class="p-3 flex items-center gap-2.5 border-r border-slate-800 bg-cyan-500/5">
+                    <span class="text-2xl">🔥</span>
+                    <div>
+                        <div class="font-bold text-sm text-cyan-400">HypeMan</div>
+                        <div class="text-[10px] text-slate-400">Your ride-or-die defender</div>
+                    </div>
+                </div>
+                <div class="p-3 flex items-center gap-2.5 bg-pink-500/5">
+                    <span class="text-2xl">💀</span>
+                    <div>
+                        <div class="font-bold text-sm text-pink-400">DoomSayer</div>
+                        <div class="text-[10px] text-slate-400">The brutal reality checker</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat Viewport -->
+            <div id="chat-viewport" class="flex-1 overflow-y-auto p-4 space-y-4 bg-[#0d0f17]">
+                <div class="flex justify-center">
+                    <span class="text-[10px] bg-slate-800 text-slate-400 px-2.5 py-1 rounded-full font-mono">System: Walrus Memory Stream initialized successfully.</span>
+                </div>
+            </div>
+
+            <!-- Input Form -->
+            <div class="p-4 bg-slate-950 border-t border-slate-800">
+                <form id="chat-form" class="flex gap-2">
+                    <input id="user-input" type="text" required placeholder="Try: 'I think Argentina will win World Cup 2026, Messi is eternal'..." 
+                           class="flex-1 bg-slate-900 border border-slate-800 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-cyan-500 text-slate-100 placeholder:text-slate-500">
+                    <button type="submit" class="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold text-sm px-5 py-2.5 rounded-xl transition flex items-center gap-2 shadow-lg shadow-cyan-500/10">
+                        Send 🚀
+                    </button>
+                </form>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-slate-800 bg-slate-950/50 py-6 text-center text-xs text-slate-500 mt-8">
+        <p>© 2026 Walrus Foundation · Hackathon Session 4 Submission</p>
+    </footer>
+
+    <!-- LINK EXTERNAL LOGIC -->
+    <script src="app.js"></script>
+</body>
+</html>
