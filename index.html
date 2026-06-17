@@ -13,6 +13,7 @@
 </head>
 <body class="bg-[#0f111a] text-slate-100 min-h-screen flex flex-col selection:bg-cyan-500 selection:text-slate-900">
 
+    <!-- HEADER -->
     <header class="border-b border-slate-800 bg-[#07080e]/90 backdrop-blur sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
             <div class="flex items-center gap-3">
@@ -36,30 +37,34 @@
         </div>
     </header>
 
-    <section class="relative w-full h-[320px] md:h-[420px] overflow-hidden bg-slate-950 border-b border-slate-800">
-        <img src="SS4.png" alt="Walrus SS4 Banner" class="w-full h-full object-cover object-center opacity-85">
-        
-        <div class="absolute inset-0 bg-gradient-to-t from-[#0f111a] via-transparent to-[#07080e]/50"></div>
-        <div class="absolute inset-0 bg-gradient-to-r from-[#0f111a]/40 via-transparent to-[#0f111a]/40"></div>
+    <!-- HERO BANNER SECTION (Hiển thị trọn vẹn 100% hình ảnh không bị che) -->
+    <section class="relative w-full h-[250px] sm:h-[350px] md:h-[480px] overflow-hidden bg-slate-950 border-b border-slate-800">
+        <img src="SS4.png" alt="Walrus SS4 Banner" class="w-full h-full object-cover object-center opacity-95">
+        <!-- Lớp phủ nhẹ tinh tế ở viền đáy để hòa hợp với nền tối -->
+        <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#0f111a] to-transparent"></div>
+    </section>
 
-        <div class="absolute bottom-6 left-0 right-0 max-w-7xl mx-auto px-4">
-            <div class="max-w-2xl bg-slate-950/70 backdrop-blur-md p-6 rounded-2xl border border-slate-800/60 shadow-2xl">
-                <span class="bg-gradient-to-r from-cyan-500 to-blue-500 text-slate-950 text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-md mb-2 inline-block">
-                    FIFA World Cup 2026 x AI Agent
-                </span>
-                <h2 class="heading-font text-2xl md:text-3xl font-extrabold text-white leading-tight">
-                    Trọng Tài AI Kép Ghi Nhớ Sâu Sắc Trên Mạng Lưới Walrus
-                </h2>
-                <p class="text-xs md:text-sm text-slate-300 mt-2 leading-relaxed">
-                    Trải nghiệm Agent thông minh sở hữu trí nhớ dài hạn. Bạn gáy ở Ngày 1, cặp đôi HypeMan & DoomSayer sẽ lôi ra đối chất hoặc tâng bốc bạn tận mây xanh ở Ngày 4!
-                </p>
-            </div>
+    <!-- KHUNG CHỮ GIỚI THIỆU ĐÃ ĐƯỢC LÙI XUỐNG DƯỚI BANNER -->
+    <section class="w-full max-w-7xl mx-auto px-4 mt-6">
+        <div class="w-full bg-slate-900/80 backdrop-blur-md p-6 rounded-2xl border border-slate-800 shadow-xl">
+            <span class="bg-gradient-to-r from-cyan-500 to-blue-500 text-slate-950 text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-md mb-2 inline-block">
+                FIFA World Cup 2026 x AI Agent
+            </span>
+            <h2 class="heading-font text-xl md:text-2xl font-extrabold text-white leading-tight">
+                Trọng Tài AI Kép Ghi Nhớ Sâu Sắc Trên Mạng Lưới Walrus
+            </h2>
+            <p class="text-xs md:text-sm text-slate-400 mt-2 leading-relaxed">
+                Trải nghiệm Agent thông minh sở hữu trí nhớ dài hạn. Bạn gáy ở Ngày 1, cặp đôi HypeMan & DoomSayer sẽ lôi ra đối chất hoặc tâng bốc bạn tận mây xanh ở Ngày 4! Tất cả trạng thái bộ nhớ được lưu trữ phi tập trung bền vững trên Walrus Mainnet.
+            </p>
         </div>
     </section>
 
-    <main class="flex-1 max-w-7xl w-full mx-auto p-4 grid grid-cols-1 lg:grid-cols-3 gap-6 my-4">
+    <!-- MAIN INTERFACE CONTAINER -->
+    <main class="flex-1 max-w-7xl w-full mx-auto p-4 grid grid-cols-1 lg:grid-cols-3 gap-6 my-2">
         
+        <!-- CỘT TRÁI: ĐIỀU KHIỂN TIME-WARP & BRAIN LOG -->
         <div class="lg:col-span-1 space-y-6">
+            <!-- Giả Lập Dòng Thời Gian -->
             <div class="bg-slate-900/60 border border-slate-800 p-5 rounded-2xl shadow-xl space-y-4">
                 <h3 class="heading-font font-bold text-amber-400 flex items-center gap-2 text-sm">
                     ⏳ Giả Lập Dòng Thời Gian (Dành cho Giám Khảo)
@@ -82,6 +87,7 @@
                 </div>
             </div>
 
+            <!-- WALRUS BRAIN STATE -->
             <div class="bg-slate-900/60 border border-slate-800 p-5 rounded-2xl shadow-xl space-y-4">
                 <div class="flex justify-between items-center">
                     <h3 class="heading-font font-bold text-cyan-400 flex items-center gap-2 text-sm">
@@ -91,7 +97,8 @@
                 </div>
                 
                 <div id="walrus-memory-slots" class="space-y-2.5 font-mono text-xs">
-                    </div>
+                    <!-- Được render tự động bằng JS -->
+                </div>
 
                 <button onclick="clearWalrusMemory()" class="w-full py-2 bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 border border-rose-500/20 text-xs font-medium rounded-xl transition">
                     🗑️ Xóa Bộ Nhớ Walrus (Reset State)
@@ -99,8 +106,10 @@
             </div>
         </div>
 
+        <!-- CỘT PHẢI: KHUNG CHAT ĐÔI BẠN CÙNG TIẾN (HypeMan vs DoomSayer) -->
         <div class="lg:col-span-2 flex flex-col bg-slate-900/40 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl h-[550px]">
             
+            <!-- Avatar Từng Agent -->
             <div class="grid grid-cols-2 border-b border-slate-800 bg-slate-950/60">
                 <div class="p-3 flex items-center gap-2.5 border-r border-slate-800 bg-cyan-500/5">
                     <span class="text-2xl">🔥</span>
@@ -118,12 +127,14 @@
                 </div>
             </div>
 
+            <!-- Khu vực hiển thị tin nhắn -->
             <div id="chat-viewport" class="flex-1 overflow-y-auto p-4 space-y-4 bg-[#0d0f17]">
                 <div class="flex justify-center">
                     <span class="text-[10px] bg-slate-800 text-slate-400 px-2.5 py-1 rounded-full font-mono">Hệ thống: Khởi tạo luồng Walrus Memory thành công.</span>
                 </div>
             </div>
 
+            <!-- Khung nhập liệu đầu vào -->
             <div class="p-4 bg-slate-950 border-t border-slate-800">
                 <form id="chat-form" class="flex gap-2">
                     <input id="user-input" type="text" required placeholder="Gõ thử: 'Tôi yêu Argentina, Messi vô địch'..." 
@@ -137,10 +148,12 @@
 
     </main>
 
-    <footer class="border-t border-slate-800 bg-slate-950/50 py-6 text-center text-xs text-slate-500">
+    <!-- FOOTER -->
+    <footer class="border-t border-slate-800 bg-slate-950/50 py-6 text-center text-xs text-slate-500 mt-8">
         <p>© 2026 Walrus Foundation · Giao diện nộp bài Hackathon SS4</p>
     </footer>
 
+    <!-- CORE LOGIC JAVASCRIPT -->
     <script>
         let mockWalrusStorage = { favorite_team: null, user_vibe: "Trung lập", interaction_count: 0, day_1_declaration: null };
         let currentDay = 1;
